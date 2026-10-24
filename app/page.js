@@ -1,30 +1,33 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import Stats from "./components/Stats";
+import Marquee from "./components/Marquee";
 import About from "./components/About";
+import Stats from "./components/Stats";
 import Skills from "./components/Skills";
-import Experience from "./components/Experience";
 import Projects from "./components/Projects";
-import LeetCode from "./components/LeetCode";
+import Experience from "./components/Experience";
+import Practice from "./components/Practice";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ScrollReveal from "./components/ScrollReveal";
+import Effects from "./components/Effects";
 
 export default function Page() {
   return (
-    <main>
-      <ScrollReveal />
+    <>
+      <Effects />
       <Nav />
-      {/* Wise-style: sage ↔ white band rhythm + dark polarity-flip for LeetCode & contact */}
-      <Hero />
-      <Stats />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
-      <LeetCode />
-      <Contact />
+      <main id="main">
+        <Hero />
+        <Marquee />
+        <About />
+        <Stats />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Practice />
+        <Contact />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

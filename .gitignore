@@ -13,6 +13,7 @@
 # misc
 .DS_Store
 *.pem
+temp_auto_push.bat
 Thumbs.db
 
 # debug
@@ -29,3 +30,5 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+.gitignore
+branch_structure.json
