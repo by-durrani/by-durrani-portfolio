@@ -1,22 +1,37 @@
 import { resume } from "@/data/resume";
+import { Heading, SectionLabel } from "./Text";
 
 export default function Skills() {
   return (
-    <section id="skills" className="band band--white">
-      <div className="inner">
-        <p className="eyebrow">Skills &amp; stack</p>
-        <h2 className="t-h2" style={{ marginBottom: 36 }}>
-          The whole pipeline.
-        </h2>
-        <div className="skills-grid">
-          {resume.skills.map((group) => (
-            <div className="skill-card" key={group.group}>
-              <div className="label">{group.group}</div>
-              <div className="items">
-                {group.items.map((item) => (
-                  <span key={item}>{item}</span>
+    <section id="capabilities" className="section">
+      <div className="container">
+        <SectionLabel index="02" label="Capabilities" />
+        <Heading text="The whole *pipeline*." className="h2 section-title" />
+
+        <div className="services">
+          {resume.services.map((s, i) => (
+            <article className="service" key={s.title} data-reveal data-spotlight style={{ "--d": i }}>
+              <span className="service-n mono">0{i + 1}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+              <ul className="tools">
+                {s.tools.map((t) => (
+                  <li key={t}>{t}</li>
                 ))}
-              </div>
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div className="stack">
+          {resume.skills.map((g) => (
+            <div className="stack-row" key={g.group} data-reveal>
+              <h3 className="mono">{g.group}</h3>
+              <ul>
+                {g.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
