@@ -1,0 +1,15 @@
+{
+  "default_branch": "main",
+  "branches": [
+    "main",
+    "redesign-and-malware-fix"
+  ],
+  "parent": {
+    "main": null,
+    "redesign-and-malware-fix": "main"
+  },
+  "order": [
+    "main",
+    "redesign-and-malware-fix"
+  ]
+}

@@ -13,6 +13,7 @@
 # misc
 .DS_Store
 *.pem
+temp_auto_push.bat
 Thumbs.db
 
 # debug
@@ -22,10 +23,12 @@ yarn-error.log*
 
 # local env files
 .env*.local
-.env
 
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
+.gitignore
+branch_structure.json
+config.bat
