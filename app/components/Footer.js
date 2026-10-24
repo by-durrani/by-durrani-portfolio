@@ -1,44 +1,74 @@
 import { resume } from "@/data/resume";
+import LocalTime from "./LocalTime";
+import { socials } from "./Contact";
+import { Roll } from "./Text";
+
+const explore = [
+  ["About", "#about"],
+  ["Capabilities", "#capabilities"],
+  ["Work", "#projects"],
+  ["Experience", "#experience"],
+  ["Practice", "#practice"],
+];
 
 export default function Footer() {
-  const { github, linkedin, leetcode } = resume.links;
   const year = new Date().getFullYear();
   return (
-    <footer className="footer">
-      <div className="inner">
-        <div className="footer-cols">
-          <div>
-            <div className="brand">{resume.name}</div>
-            <p style={{ marginTop: 10, maxWidth: 320, fontSize: 14, color: "rgba(232,235,230,0.72)" }}>
-              {resume.tagline}
-            </p>
-          </div>
-
-          <div>
-            <h4>Explore</h4>
-            <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#experience">Experience</a></li>
-              <li><a href="#projects">Work</a></li>
-              <li><a href="#leetcode">LeetCode</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4>Connect</h4>
-            <ul>
-              <li><a href={`mailto:${resume.email}`}>Email</a></li>
-              {github && <li><a href={github} target="_blank" rel="noreferrer">GitHub</a></li>}
-              {linkedin && <li><a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a></li>}
-              {leetcode && <li><a href={leetcode} target="_blank" rel="noreferrer">LeetCode</a></li>}
-            </ul>
+    <footer className="footer no-print">
+      <div className="container">
+        <div className="footer-top">
+          <p className="footer-motto serif">“{resume.motto}”</p>
+          <div className="footer-cols">
+            <div>
+              <h4 className="mono">Explore</h4>
+              <ul>
+                {explore.map(([label, href]) => (
+                  <li key={href}>
+                    <a href={href}>
+                      <Roll>{label}</Roll>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="mono">Connect</h4>
+              <ul>
+                <li>
+                  <a href={`mailto:${resume.email}`}>
+                    <Roll>Email</Roll>
+                  </a>
+                </li>
+                {socials().map(([label, href]) => (
+                  <li key={label}>
+                    <a href={href} target="_blank" rel="noreferrer">
+                      <Roll>{label}</Roll>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="mono">Local time</h4>
+              <p className="footer-time">
+                <LocalTime timeZone={resume.timezone} label={resume.timezoneLabel} />
+              </p>
+              <a href="#top" className="to-top" data-magnetic="0.35" aria-label="Back to top">
+                ↑
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="footer-legal">
-          <span>© {year} {resume.name}. {resume.footerNote}</span>
-          <span>Built with Next.js.</span>
+        <div className="footer-giant" aria-hidden="true">
+          {resume.name.split(" ").at(-1)}
+        </div>
+
+        <div className="footer-legal mono">
+          <span>
+            © {year} {resume.name}. {resume.footerNote}
+          </span>
+          <span>Built with Next.js</span>
         </div>
       </div>
     </footer>
