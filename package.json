@@ -1,17 +1,16 @@
 {
-  "name": "minimal-portfolio",
-  "version": "1.0.0",
+  "name": "by-durrani-portfolio",
+  "version": "2.0.0",
   "private": true,
-  "description": "Apple-style minimalist developer portfolio built with Next.js (App Router).",
+  "description": "Portfolio of Abdur Rehman Durrani — full-stack & AI engineer. Built with Next.js (App Router).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "start": "next start"
   },
   "dependencies": {
-    "next": "14.2.15",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   }
 }

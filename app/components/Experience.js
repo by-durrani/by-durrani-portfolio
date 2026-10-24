@@ -1,32 +1,31 @@
 import { resume } from "@/data/resume";
+import { Heading, SectionLabel } from "./Text";
 
 export default function Experience() {
   return (
-    <section id="experience" className="band band--sage">
-      <div className="inner">
-        <p className="eyebrow">Experience</p>
-        <h2 className="t-h2" style={{ marginBottom: 40 }}>
-          Where I&apos;ve shipped.
-        </h2>
-        <div className="exp">
-          {resume.experience.map((job, i) => (
-            <div className="exp-item" key={i}>
-              <div className="exp-meta">
-                <div className="period">{job.period}</div>
-                <div className="company">{job.company}</div>
-                <div className="loc">{job.location}</div>
-              </div>
-              <div className="exp-body">
-                <h3>{job.role}</h3>
+    <section id="experience" className="section">
+      <div className="container">
+        <SectionLabel index="04" label="Experience" />
+        <Heading text="Where I've *shipped*." className="h2 section-title" />
+
+        <ol className="exp">
+          {resume.experience.map((job) => (
+            <li className="exp-row" key={`${job.role}-${job.company}`} data-reveal>
+              <span className="exp-period mono">{job.period}</span>
+              <div className="exp-main">
+                <h3>
+                  {job.role} <span className="exp-at serif">at</span> {job.company}
+                </h3>
                 <ul>
                   {job.bullets.map((b, j) => (
                     <li key={j}>{b}</li>
                   ))}
                 </ul>
               </div>
-            </div>
+              <span className="exp-loc mono">{job.location}</span>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );
